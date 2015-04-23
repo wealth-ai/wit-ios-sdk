@@ -7,6 +7,7 @@
 //
 
 #import "WITState.h"
+#import "WitPrivate.h"
 
 @implementation WITState
 
@@ -38,6 +39,9 @@
 #pragma mark - Defaults
 - (void)readPlist {
     self.accessToken = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"WitAccessToken"];
+    self.apiBaseUrl = kWitAPIUrl;
+    self.speechPath = @"speech";
+    self.textPath = @"message";
     NSString *accessToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"accessToken"];
     if (accessToken && [accessToken length] > 0) self.accessToken = accessToken;
 }

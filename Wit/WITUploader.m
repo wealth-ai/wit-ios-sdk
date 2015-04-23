@@ -195,7 +195,11 @@
     if (self) {
         q = [[NSOperationQueue alloc] init];
         [q setMaxConcurrentOperationCount:1];
-        kWitSpeechURL = [NSString stringWithFormat: @"%@/speech?v=%@", kWitAPIUrl, kWitAPIVersion];
+        
+        NSString* apiBase = [[WITState sharedInstance] apiBaseUrl];
+        NSString* speechPath = [[WITState sharedInstance] speechPath];
+        
+        kWitSpeechURL = [NSString stringWithFormat: @"%@/%@?v=%@", apiBase, speechPath, kWitAPIVersion];
     }
 
     return self;

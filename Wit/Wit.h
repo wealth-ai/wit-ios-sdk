@@ -30,6 +30,21 @@
 @property (strong) NSString* accessToken;
 
 /**
+ Base URL of Wit.ai or proxy
+ */
+@property (strong) NSString* apiBaseUrl;
+
+/**
+ Path to speech endpoint of Wit.ai or proxy API
+ */
+@property (strong) NSString* speechPath;
+
+/**
+ Path to text endpoint of Wit.ai or proxy API
+ */
+@property (strong) NSString* textPath;
+
+/**
  * Configure the voice activity detection algorithm:
  * - WITVadConfigDisabled
  * - WITVadConfigDetectSpeechStop (default)

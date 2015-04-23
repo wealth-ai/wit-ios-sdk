@@ -14,6 +14,9 @@
 @property (strong) WITRecorder* recorder;
 @property (strong) WITUploader* uploader;
 @property (strong) NSString *accessToken;
+@property (strong) NSString *apiBaseUrl;
+@property (strong) NSString *speechPath;
+@property (strong) NSString *textPath;
 @property (strong) NSMutableDictionary *context;
 
 +(WITState*)sharedInstance;

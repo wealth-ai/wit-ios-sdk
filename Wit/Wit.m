@@ -63,7 +63,7 @@
     [self.wcs contextFillup:self.state.context];
     NSDate *start = [NSDate date];
     NSString *contextEncoded = [WITContextSetter jsonEncode:self.state.context];
-    NSString *urlString = [NSString stringWithFormat:@"https://api.wit.ai/message?q=%@&v=%@&context=%@", urlencodeString(string), kWitAPIVersion, contextEncoded];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@?q=%@&v=%@&context=%@", self.state.apiBaseUrl, self.state.textPath, urlencodeString(string), kWitAPIVersion, contextEncoded];
     NSMutableURLRequest* req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString: urlString]];
     [req setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     [req setTimeoutInterval:15.0];
@@ -167,6 +167,30 @@
 
 - (void)setAccessToken:(NSString *)accessToken {
     state.accessToken = accessToken;
+}
+
+- (NSString *)apiBaseUrl {
+    return state.apiBaseUrl;
+}
+
+- (void)setApiBaseUrl:(NSString *)apiBaseUrl {
+    state.apiBaseUrl = apiBaseUrl;
+}
+
+- (NSString *)speechPath {
+    return state.speechPath;
+}
+
+- (void)setSpeechPath:(NSString *)speechPath {
+    state.speechPath = speechPath;
+}
+
+- (NSString *)textPath {
+    return state.textPath;
+}
+
+- (void)setTextPath:(NSString *)textPath {
+    state.textPath = textPath;
 }
 
 #pragma mark - Lifecycle
